@@ -1,0 +1,169 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store user information
+typedef struct {
+    char goal[20];
+    char level[20];
+    char bodyPart[20];
+} User;
+
+// Function prototypes
+void generateWorkoutPlan(User user);
+void generateStrengthPlan(User user);
+void generateEndurancePlan(User user);
+void generateFlexibilityPlan(User user);
+
+int main() {
+    User user;
+
+    // Collect user inputs
+    printf("Enter your fitness goal (strength, endurance, flexibility): ");
+    scanf("%s", user.goal);
+    printf("Enter your fitness level (beginner, intermediate, advanced): ");
+    scanf("%s", user.level);
+    printf("Enter the body part you want to focus on (upper, lower, full): ");
+    scanf("%s", user.bodyPart);
+
+    // Generate workout plan based on user inputs
+    generateWorkoutPlan(user);
+
+    return 0;
+}
+
+// Function to generate a workout plan based on user goal
+void generateWorkoutPlan(User user) {
+    if (strcmp(user.goal, "strength") == 0) {
+        generateStrengthPlan(user);
+    } else if (strcmp(user.goal, "endurance") == 0) {
+        generateEndurancePlan(user);
+    } else if (strcmp(user.goal, "flexibility") == 0) {
+        generateFlexibilityPlan(user);
+    } else {
+        printf("Invalid goal. Please enter 'strength', 'endurance', or 'flexibility'.\n");
+    }
+}
+
+// Function to generate a strength workout plan
+void generateStrengthPlan(User user) {
+    printf("\n--- Strength Workout Plan ---\n");
+
+    if (strcmp(user.level, "beginner") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Push-ups: 3 sets of 8 reps\n");
+            printf("Dumbbell Rows: 3 sets of 10 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Squats: 3 sets of 10 reps\n");
+            printf("Lunges: 3 sets of 12 reps\n");
+        } else {
+            printf("Full-body workout: 3 sets of 10 reps each\n");
+            printf("Push-ups, Squats, Lunges, Dumbbell Rows\n");
+        }
+    } else if (strcmp(user.level, "intermediate") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Incline Push-ups: 4 sets of 10 reps\n");
+            printf("Pull-Ups: 4 sets of 8 reps\n");
+            printf("Shoulder Press: 3 sets of 10 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Bulgarian Split Squats: 4 sets of 10 reps\n");
+            printf("Deadlifts: 3 sets of 8 reps\n");
+            printf("Leg Press: 3 sets of 10 reps\n");
+        } else {
+            printf("Full-body workout: 4 sets of 10 reps each\n");
+            printf("Pull-Ups, Deadlifts, Shoulder Press, Bulgarian Split Squats\n");
+        }
+    } else if (strcmp(user.level, "advanced") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Bench Press: 5 sets of 5 reps\n");
+            printf("Weighted Pull-Ups: 4 sets of 6 reps\n");
+            printf("Overhead Press: 4 sets of 8 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Back Squats: 5 sets of 5 reps\n");
+            printf("Deadlifts: 4 sets of 5 reps\n");
+            printf("Lunges (weighted): 3 sets of 12 reps\n");
+        } else {
+            printf("Full-body workout: 5 sets of 5 reps each\n");
+            printf("Bench Press, Back Squats, Deadlifts, Weighted Pull-Ups\n");
+        }
+    }
+}
+
+// Function to generate an endurance workout plan
+void generateEndurancePlan(User user) {
+    printf("\n--- Endurance Workout Plan ---\n");
+
+    if (strcmp(user.level, "beginner") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Jump Rope: 5 minutes\n");
+            printf("Burpees: 3 sets of 10 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Jogging: 10 minutes\n");
+            printf("Mountain Climbers: 3 sets of 15 reps\n");
+        } else {
+            printf("Full-body circuit: 3 rounds\n");
+            printf("Jump Rope (5 mins), Burpees, Mountain Climbers\n");
+        }
+    } else if (strcmp(user.level, "intermediate") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Rowing Machine: 10 minutes\n");
+            printf("High-Knee Drills: 3 sets of 20 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Running: 20 minutes\n");
+            printf("Box Jumps: 4 sets of 15 reps\n");
+        } else {
+            printf("Full-body circuit: 4 rounds\n");
+            printf("Rowing Machine (10 mins), High-Knee Drills, Box Jumps\n");
+        }
+    } else if (strcmp(user.level, "advanced") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Battle Ropes: 15 minutes\n");
+            printf("Push-Up Variations: 4 sets of 20 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Running: 30 minutes at a fast pace\n");
+            printf("Plyometric Lunges: 4 sets of 20 reps\n");
+        } else {
+            printf("Full-body HIIT circuit: 5 rounds\n");
+            printf("Battle Ropes, Push-Up Variations, Plyometric Lunges\n");
+        }
+    }
+}
+
+// Function to generate a flexibility workout plan
+void generateFlexibilityPlan(User user) {
+    printf("\n--- Flexibility Workout Plan ---\n");
+
+    if (strcmp(user.level, "beginner") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Shoulder Stretch: 30 seconds each side\n");
+            printf("Arm Circles: 3 sets of 15 reps\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Hamstring Stretch: 30 seconds each side\n");
+            printf("Quad Stretch: 30 seconds each side\n");
+        } else {
+            printf("Full-body stretching routine:\n");
+            printf("Shoulder Stretch, Hamstring Stretch, Quad Stretch\n");
+        }
+    } else if (strcmp(user.level, "intermediate") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Chest Opener Stretch: 45 seconds\n");
+            printf("Cross-Body Shoulder Stretch: 3 sets of 30 seconds\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Standing Forward Fold: 45 seconds\n");
+            printf("Hip Flexor Stretch: 3 sets of 30 seconds each side\n");
+        } else {
+            printf("Full-body routine:\n");
+            printf("Chest Opener, Standing Forward Fold, Hip Flexor Stretch\n");
+        }
+    } else if (strcmp(user.level, "advanced") == 0) {
+        if (strcmp(user.bodyPart, "upper") == 0) {
+            printf("Overhead Shoulder Stretch: 1 minute\n");
+            printf("Tricep Stretch: 3 sets of 45 seconds each side\n");
+        } else if (strcmp(user.bodyPart, "lower") == 0) {
+            printf("Pigeon Pose: 1 minute each side\n");
+            printf("Deep Squat Hold: 1 minute\n");
+        } else {
+            printf("Full-body routine:\n");
+            printf("Overhead Shoulder Stretch, Pigeon Pose, Deep Squat Hold\n");
+        }
+    }
+}
